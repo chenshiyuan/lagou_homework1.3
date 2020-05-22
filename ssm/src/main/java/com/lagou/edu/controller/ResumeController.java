@@ -33,19 +33,19 @@ public class ResumeController {
     }
 
     @RequestMapping("/delete")
+    @ResponseBody
     public String queryAll(HttpServletRequest request, HttpServletResponse
             response,Integer id) throws Exception {
         resumeService.deleteByID(id);
-        request.setAttribute("resumes",resumeService.queryResumeList());
         return "list";
     }
 
 
     @RequestMapping("/save")
+    @ResponseBody
     public String save(HttpServletRequest request, HttpServletResponse
             response,Resume resume) throws Exception {
         resumeService.update(resume);
-        request.setAttribute("resumes",resumeService.queryResumeList());
         return "list";
     }
 

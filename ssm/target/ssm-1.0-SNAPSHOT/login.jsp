@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h3>请登录</h3>
+<h3>请登录:</h3>
     <%
     String basePath = request.getContextPath()+"/login";
 //    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -23,7 +23,7 @@
         </tr>
         <tr>
             <td>
-                <a href="javasrcipt:void(0)" class="submitBtn"><span>登录</span></a>
+                <a  class="submitBtn"><span>登录</span></a>
 
             </td>
 
@@ -31,24 +31,7 @@
         </tr>
     </table>
 </form>
-<script>
-    function userAdd(){
-        var username = $("#username").val();
 
-        if(username == null || $.trim(username).length == 0){
-            alert("sorry,必须输入名字~");
-            return;
-        }
-        $.ajax({
-            url:"${ctx}/login?name="+username,
-            data:$("#userAdd").serialize(),
-            type:"post",
-            success:function(data){
-                console.log(data);
-            }
-        });
-    }
-</script>
 
 <script type="text/javascript">
     $(function(){
@@ -62,11 +45,10 @@
 
             $.ajax({
                 url:"${ctx}/login?name="+username,
-                data:$("#userAdd").serialize(),
-                type:"post",
-                success:function(data){
-                    console.log(data);
-                }
+                data:'',
+                type:"get",
+                success:
+                    window.location.href = "${ctx}/resume/list"
             });
         })
     })

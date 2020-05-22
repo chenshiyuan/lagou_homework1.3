@@ -24,13 +24,14 @@ public class LoginController {
 
 
     @RequestMapping("/login")
+    @ResponseBody
     public String login(HttpServletRequest request, HttpServletResponse
             response, String name) throws Exception {
         if (StringUtils.isEmpty(name)){
             return "login";
         }
         request.getSession().setAttribute("username", name);
-        return "redirect:/resume/list";
+        return "success";
     }
 
 }
